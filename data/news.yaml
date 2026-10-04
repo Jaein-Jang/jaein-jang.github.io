@@ -1,0 +1,14 @@
+# News: shown newest first, in the order written here.
+#
+# To add an item, copy an existing one (its "- date:" line and the "text:" line
+# under it), paste it at the top of the list, and edit it.
+#   date: "YYYY-MM", for example "2026-10".
+#   text: Markdown works: [link text](https://...), **bold**, emoji.
+# Keep the text inside the double quotes; write \" for a literal double quote.
+# The newest 8 items are shown; older ones go into an "older news" toggle
+# (to change the number, edit newsVisible in hugo.toml).
+#
+# TODO: add more news items as they come up, newest first.
+
+- date: "2026-06"
+  text: "Presented **UTMR** at the **Autoware Tutorial & Workshop** (8th edition) at **IEEE IV 2026** in Detroit, Michigan. 🚗"

@@ -1,0 +1,23 @@
+{{- /* Selected Publications on the homepage: the papers from
+       data/publications.yaml that pub-selected.html picks (all but journal and
+       workshop papers), in file order, then a link to the More Publications
+       page (content/publications.md) with the others. Each paper needs a title
+       (see items.html). An empty file drops the section. */ -}}
+{{- with partial "items.html" (dict "list" hugo.Data.publications "where" "data/publications.yaml" "need" (slice "title")) }}
+{{- $selected := slice }}
+{{- $others := slice }}
+{{- range . }}
+  {{- if partial "pub-selected.html" . }}{{ $selected = $selected | append . }}{{ else }}{{ $others = $others | append . }}{{ end }}
+{{- end }}
+<section class="block" aria-labelledby="publications">
+  <h2 id="publications">Selected Publications</h2>
+  {{- with $selected }}
+  {{ partial "pub-list.html" (dict "papers" . "prefix" "paper") }}
+  {{- end }}
+  {{- with $others }}
+  {{- with site.GetPage "/publications" }}
+  <p class="more"><a href="{{ .RelPermalink }}">{{ .Title }} ({{ len $others }}) →</a></p>
+  {{- end }}
+  {{- end }}
+</section>
+{{- end }}

@@ -1,0 +1,152 @@
+# Jaein Jang: homepage
+
+A small [Hugo](https://gohugo.io/) site (the homepage plus a More Publications page) with no theme, no npm
+and no build tools besides Hugo; the only JavaScript is a few lines for the light/dark toggle.
+Every commit to `main` is published to GitHub Pages automatically. Before the first deploy, do the
+[one-time setup](#one-time-setup).
+
+This site was scaffolded from [reiss-koh.github.io](https://github.com/reiss-koh/reiss-koh.github.io); the
+structure, layouts and CSS are unchanged, only the content in `content/`, `data/` and the photo are new.
+Several things below are placeholders marked `TODO` — see [Still to do](#still-to-do).
+
+## What's where
+
+| To change …                                                     | edit …                                                     |
+| ----------------------------------------------------------------| ------------------------------------------------------------ |
+| Bio (About section)                                              | `content/_index.md`: the text below the `---` block        |
+| Title in the browser tab and in link previews                   | `title` in `content/_index.md`                             |
+| Sidebar: name, role, affiliation, location, links, interests    | `data/profile.yaml`                                        |
+| News                                                              | `data/news.yaml`                                           |
+| Papers                                                            | `data/publications.yaml`                                   |
+| Experience, education, awards, service, mentees, collaboration  | `data/cv.yaml`                                             |
+| Photo                                                             | upload to `assets/images/`, then set `photo` in `data/profile.yaml` |
+| How many news items show before the "older news" toggle         | `newsVisible` in `hugo.toml`                               |
+| Emoji at the end of news items on/off                            | `newsEmoji` in `hugo.toml` (`true` or `false`)             |
+| Title of the second page with the other papers                  | `title` in `content/publications.md`                       |
+
+**Editing on GitHub:** open the file, click the pencil icon, edit, then **Commit changes**.
+To add a photo, open `assets/images/`, choose **Add file → Upload files**, upload any photo (JPG or PNG, any size),
+and set `photo` in `data/profile.yaml` to its name with exact upper/lower case, e.g. `"images/me.jpg"` (then remove
+the `#` in front of that line). It is cropped to a centred square and resized automatically.
+To link a file such as a CV, upload it to `static/files/` the same way and link it as `files/cv.pdf` (no `/` in front),
+e.g. `url: "files/cv.pdf"` in `data/profile.yaml`, or `[CV](files/cv.pdf)` in a news item.
+
+Lists appear in file order (newest first), so add new entries **first in the list**. YAML tips: match the indentation of the
+neighbouring entries (spaces, never tabs) and keep text in double quotes (write `\"` for a quote inside).
+Dates are `"YYYY-MM"`, for example `"2026-10"` (a full date such as `"2026-10-15"` also works; only the month is shown).
+
+Sidebar links appear as written, in the order listed in `data/profile.yaml`. Keep the labels short (`Scholar`,
+not `Google Scholar`) so that all of them fit on one line.
+
+The site opens in light mode; the toggle (top right of the sidebar) switches to dark mode, and a visitor's
+choice is remembered in their browser.
+
+## Still to do
+
+- [x] `data/profile.yaml`: email, LinkedIn, location, interests
+- [ ] `assets/images/`: upload a photo, then uncomment and set `photo` in `data/profile.yaml`
+- [ ] `content/_index.md`: rewrite the About text in your own voice
+- [ ] `content/more-about-me.md`: either fill it in, or delete the file to drop that section
+- [ ] `data/cv.yaml`: fill in the start/end dates for experience and education (left blank for now)
+- [x] `data/publications.yaml`: UTMR (Autoware Tutorial & Workshop @ IEEE IV 2026), AdaSTaR, FlickerFusion
+- [ ] `data/publications.yaml`: add a public pdf link for UTMR once one exists (arXiv/IEEE), see the TODO next to it
+- [x] `data/news.yaml`: UTMR @ IV 2026 workshop added
+- [ ] create the GitHub repository `jaein-jang.github.io` and complete [one-time setup](#one-time-setup)
+
+## Copy-paste snippets
+
+**News item:** goes first in the list in `data/news.yaml`. `text` is inline Markdown (`[links](https://…)`, `**bold**`, emoji).
+The newest 8 items are shown (`newsVisible` in `hugo.toml`); older ones move into the "Older news" toggle by themselves.
+
+```yaml
+- date: "2026-10"
+  text: "[**Paper Name**](https://arxiv.org/abs/0000.00000) has been accepted to **NeurIPS 2026**! 🎉"
+```
+
+**Paper:** goes first in the list in `data/publications.yaml`.
+
+```yaml
+- id: "C3"
+  title: "Paper Title"
+  authors: "Jaein Jang*, Jane Doe*, John Smith"
+  venue: "NeurIPS 2026 (Oral)"
+  tags: ["Efficiency", "Reasoning"]
+  pdf: "https://arxiv.org/pdf/0000.00000"
+  code: "https://github.com/jaein-jang/repo"
+```
+
+- `id`: C = conference paper, J = journal article, W = workshop paper, P = preprint, plus the next free
+  number. It is shown in the margin beside the title; hovering over it shows what the letter means.
+  C and P papers are listed under **Selected Publications** on the homepage; J and W papers on the
+  **More Publications** page (`/publications/`, grouped into Journal and Workshop), which the
+  homepage links to. To move one paper, add `selected: true` (homepage) or `selected: false` (other page) to it.
+- `authors`: one comma-separated string. Put `*` right after a name to mark equal contribution.
+  Your name (`paper_name` in `data/profile.yaml`) is underlined automatically.
+- `venue`: honours in brackets at the end are highlighted automatically: `"NeurIPS 2026 (Oral)"` shows as
+  "NeurIPS 2026 · **Oral**". This works for brackets that contain a word such as Oral, Spotlight, Award, Best,
+  Outstanding, Honorable Mention, Highlight, Distinguished, Notable, Talk or Prize, and for several in a row:
+  `"X (Oral) (Best Paper Award)"` shows as "X · **Oral** · **Best Paper Award**". Other brackets, such as
+  `(SCIE, Q1)`, show as written.
+- Links are optional, so keep only the ones you have: `pdf`, `code`, `project`, `dataset`, `video`,
+  `slides`, `poster`, `blog`. They always show in that order. The title links to the `pdf` (or else the `project`, else the `code`).
+
+**Award:** awards are shown at the very end of the page, inside the collapsed **See More** toggle.
+Add it under the `awards:` line in `data/cv.yaml` (the list is currently empty), lined up like:
+
+```yaml
+  - title: "Award Name"
+    by: "Organization or Venue"
+    date: "2026-10"
+    note: ""
+```
+
+## Publishing
+
+- Every commit to `main` rebuilds and redeploys the site in about a minute (**Actions** tab → "Deploy site").
+- A failed run (red ✗) is almost always a YAML typo, such as a missing quote or wrong indentation, or a date that
+  isn't `"YYYY-MM"`. Open the run, then the **Build** step: the message names the file and the line, or the entry to
+  fix. The mistake is on the reported line or a few lines above it; a missing closing quote, for example, is
+  reported at the start of the next entry. Until a run succeeds, the previous version stays live.
+- Dependabot may open a pull request about once a month to update the GitHub Actions in the workflow.
+  Merging it is all that's needed. Hugo is pinned by `HUGO_VERSION` in `.github/workflows/deploy.yml`.
+
+## Local preview (optional)
+
+```sh
+brew install hugo      # macOS; on Windows: winget install Hugo.Hugo.Extended
+hugo server            # run inside this repository's folder, then open http://localhost:1313
+```
+
+## One-time setup
+
+Do these in order, before the new site is merged or pushed to `main`:
+
+1. Create a GitHub repository named exactly `jaein-jang.github.io`, so the site lives at
+   https://jaein-jang.github.io/ (see [Site address](#site-address)), and push this folder to it.
+2. **Settings → Pages → Build and deployment → Source: "GitHub Actions".** Ignore the workflow templates GitHub
+   suggests, because `.github/workflows/deploy.yml` is already here.
+3. Merge or push to `main`, or run **Actions → Deploy site → Run workflow**. The very first deploy can take up
+   to 10 minutes to appear; after that, about a minute. Check that both jobs are green in **Actions**, that
+   https://jaein-jang.github.io/ shows the styling, and that https://jaein-jang.github.io/nope shows the 404 page.
+4. Point your other pages at the new address: the **Website** field of your GitHub profile, LinkedIn, etc.
+
+If a run failed at "Configure Pages" before step 2 was done, re-run it: **Actions → Deploy site → Run workflow**.
+
+## Site address
+
+GitHub Pages picks the address automatically, so no code change is needed:
+
+- repository named `jaein-jang.github.io` → https://jaein-jang.github.io/
+- any other name → `https://jaein-jang.github.io/<repo-name>/`. Rename the repository under **Settings → General**.
+- custom domain → **Settings → Pages → Custom domain**, plus DNS records at your domain registrar
+  ([GitHub docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)).
+  No `CNAME` file is needed. Tick **Enforce HTTPS** once it becomes available.
+
+The address is baked in when the site is built. After renaming the repository or changing the domain,
+run the workflow once (**Actions → Deploy site → Run workflow**).
+
+## License
+
+The site's content (text and photo) is under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/):
+anyone may reuse it, with credit. This is stated in the footer (`layouts/_partials/footer.html`).
+The code is under the MIT license in `LICENSE.md`.

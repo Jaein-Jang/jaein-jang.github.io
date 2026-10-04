@@ -1,0 +1,44 @@
+# Publications: shown in the order written here (newest first).
+#
+# To add a paper, copy a whole entry (from its "- id:" line down to the line
+# before the next "- id:"), paste it at the top of the list, and edit it.
+#   id:      C = conference, J = journal, W = workshop, P = preprint, plus a
+#            number, for example "C7".
+#   authors: ONE line, names separated by ", ". Put * right after a name for
+#            equal contribution. Your name (paper_name in data/profile.yaml)
+#            is bolded automatically.
+#   venue:   plain text, for example "NeurIPS 2026 (Oral)" or "Pre-print".
+#   tags:    research topics, for example ["Reasoning", "Efficiency"].
+#   Links are optional; keep only the ones you have. They are always shown in
+#   this order: pdf, code, project, dataset, video, slides, poster, blog.
+# Keep text inside the double quotes; write \" for a literal double quote.
+#
+# TODO: these two are the papers where you're listed as a co-author (found
+# via data/publications.yaml on reiss-koh.github.io) — check the details are
+# right, and add any other papers you're on.
+
+# TODO: no public pdf link yet for UTMR — add one (arXiv/IEEE) once available,
+# e.g.  pdf: "https://arxiv.org/abs/..."
+- id: "W1"
+  title: "Uncertainty Triggered Re-ranking to Counter Uncertainty Induced Conservatism in High Speed World Model Based Trajectory Selection"
+  authors: "Jaein Jang*, Junseok Lee*, Shiho Kim"
+  venue: "Autoware Tutorial & Workshop @ IEEE IV 2026"
+  tags: ["Autonomous Driving", "World Models", "Uncertainty Estimation", "Trajectory Planning"]
+  selected: true
+
+- id: "C2"
+  title: "AdaSTaR: Adaptive Data Sampling for Training Self-Taught Reasoners"
+  authors: "Woosung Koh, Wonbeen Oh, Jaein Jang, MinHyung Lee, Hyeongjin Kim, Ah Yeon Kim, Joonkee Kim, Junghyun Lee, Taehyeon Kim, Se-Young Yun"
+  venue: "NeurIPS 2025"
+  tags: ["Post-training", "Reasoning", "Data Sampling", "Training Efficiency"]
+  pdf: "https://www.arxiv.org/abs/2505.16322"
+  code: "https://github.com/reiss-koh/AdaSTaR"
+
+- id: "C1"
+  title: "FlickerFusion: Intra-trajectory Domain Generalizing Multi-Agent RL"
+  authors: "Woosung Koh, Wonbeen Oh, Siyeol Kim, Suhin Shin, Hyeongjin Kim, Jaein Jang, Junghyun Lee, Se-Young Yun"
+  venue: "ICLR 2025"
+  tags: ["Multi-Agent RL", "Domain Generalization"]
+  pdf: "https://arxiv.org/abs/2410.15876"
+  code: "https://github.com/flickerfusion305/FlickerFusion"
+  project: "https://flickerfusion305.github.io"

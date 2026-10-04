@@ -1,0 +1,17 @@
+{{- /* The About text: the body of content/_index.md. Text typed above the
+       first "---" line would turn the whole front matter into About text, so
+       the build stops instead (the title is also the browser-tab title). */ -}}
+{{- if not .Params.title }}
+  {{- errorf "content/_index.md must start with the \"---\" line, followed by title: \"…\" and a second \"---\" line. Write the About text below the second \"---\" line." }}
+{{- end }}
+{{- with .Content }}
+<section class="block" aria-labelledby="about">
+  {{- /* heading: in content/_index.md; without it the heading is only read by screen readers */}}
+  {{- with $.Params.heading }}
+  <h2 id="about">{{ . }}</h2>
+  {{- else }}
+  <h2 id="about" class="vh">About</h2>
+  {{- end }}
+  <div class="prose">{{ . }}</div>
+</section>
+{{- end }}

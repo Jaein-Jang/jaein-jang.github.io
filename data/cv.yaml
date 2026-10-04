@@ -1,0 +1,31 @@
+# CV: experience, education, awards, service, mentees and collaboration.
+# Each list is shown in the order written here (newest first).
+#
+# To add an entry, copy an existing entry of the same section (from its "- "
+# line down to its last line), paste it at the top of that section, and edit
+# it. Dates are "YYYY-MM"; an empty end date ("") is shown as "Present".
+# Keep text inside the double quotes; write \" for a literal double quote.
+# Optional: url (experience, education) can be deleted; an award's note can
+# be left as "".
+#
+# TODO: fill in the real start/end dates below (left blank for now).
+
+experience:
+  - role: "AI Engineer"
+    org: "Hanwha Ocean, Digital Transformation Team"
+    url: ""
+    start: ""
+    end: ""
+
+education:
+  - degree: "Bachelor's Degree, Mechanical Engineering"
+    school: "Yonsei University"
+    start: ""
+    end: ""
+    notes: []
+
+awards: []
+
+service: []
+
+mentees: []

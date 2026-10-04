@@ -1,0 +1,19 @@
+# Site settings. Content lives in data/*.yaml and content/_index.md — see README.md.
+# baseURL is replaced automatically by the GitHub Pages deploy workflow.
+baseURL = "https://jaein-jang.github.io/"
+locale = "en-us"
+title = "Jaein Jang"
+disableKinds = ["taxonomy", "term", "section", "rss"]
+enableRobotsTXT = true
+
+[markup.goldmark.renderer]
+  unsafe = true
+# ==text== in Markdown highlights it (used for the topics in the About text)
+[markup.goldmark.extensions.extras.mark]
+  enable = true
+
+[params]
+  # How many news items to show before the "older news" toggle.
+  newsVisible = 8
+  # Emoji at the end of news items: true shows them, false hides them.
+  newsEmoji = false
