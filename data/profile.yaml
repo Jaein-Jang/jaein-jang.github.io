@@ -26,10 +26,7 @@ location: ["Seoul"]
 
 # Photo inside the assets/ folder (JPG or PNG, any size): it is cropped to a
 # centred square and resized automatically.
-# TODO: upload a photo to assets/images/ (e.g. assets/images/me.jpg), then
-# uncomment the line below and point it at that file. The build fails if this
-# points at a file that isn't there, so it's commented out for now.
-# photo: "images/me.jpg"
+photo: "images/image.jpg"
 
 # One sentence for search engines and link previews.
 description: "Jaein Jang is an AI engineer on the Digital Transformation team at Hanwha Ocean, working on applied AI/ML."

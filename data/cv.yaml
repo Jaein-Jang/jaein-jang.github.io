@@ -8,20 +8,18 @@
 # Optional: url (experience, education) can be deleted; an award's note can
 # be left as "".
 #
-# TODO: fill in the real start/end dates below (left blank for now).
-
 experience:
   - role: "AI Engineer"
     org: "Hanwha Ocean, Digital Transformation Team"
     url: ""
-    start: ""
+    start: "2026-07"
     end: ""
 
 education:
   - degree: "Bachelor's Degree, Mechanical Engineering"
     school: "Yonsei University"
-    start: ""
-    end: ""
+    start: "2021-03"
+    end: "2026-08"
     notes: []
 
 awards: []

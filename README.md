@@ -44,14 +44,14 @@ choice is remembered in their browser.
 ## Still to do
 
 - [x] `data/profile.yaml`: email, LinkedIn, location, interests
-- [ ] `assets/images/`: upload a photo, then uncomment and set `photo` in `data/profile.yaml`
-- [ ] `content/_index.md`: rewrite the About text in your own voice
-- [ ] `content/more-about-me.md`: either fill it in, or delete the file to drop that section
-- [ ] `data/cv.yaml`: fill in the start/end dates for experience and education (left blank for now)
+- [x] `assets/images/image.jpg`: photo uploaded and wired into `data/profile.yaml`
+- [x] `content/_index.md`: About text rewritten
+- [ ] `content/more-about-me.md`: still a placeholder (kept for now) — fill it in, or delete the file to drop that section
+- [x] `data/cv.yaml`: experience/education start-end dates filled in
 - [x] `data/publications.yaml`: UTMR (Autoware Tutorial & Workshop @ IEEE IV 2026), AdaSTaR, FlickerFusion
 - [ ] `data/publications.yaml`: add a public pdf link for UTMR once one exists (arXiv/IEEE), see the TODO next to it
 - [x] `data/news.yaml`: UTMR @ IV 2026 workshop added
-- [ ] create the GitHub repository `jaein-jang.github.io` and complete [one-time setup](#one-time-setup)
+- [x] GitHub repository created at `jaein-jang.github.io` and pushed — finish [one-time setup](#one-time-setup) (Settings → Pages → Source: GitHub Actions)
 
 ## Copy-paste snippets
 
